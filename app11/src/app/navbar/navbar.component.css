@@ -1,0 +1,11 @@
+a {
+  color: #fff;
+}
+a:link,
+a:visited {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+a.active {
+  font-weight: bold;
+}
