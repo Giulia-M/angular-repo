@@ -1,0 +1,16 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>titolo</th>
+      <th>genere</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let f of elencoFilms">
+      <td>{{ f.id }}</td>
+      <td>{{ f.titolo }}</td>
+      <td>{{ f.genere }}</td>
+    </tr>
+  </tbody>
+</table>
