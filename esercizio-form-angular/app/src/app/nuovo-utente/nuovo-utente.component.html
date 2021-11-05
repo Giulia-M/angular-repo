@@ -1,0 +1,148 @@
+<h2>nuovo utente</h2>
+
+<div class="row">
+  <div class="col">
+    <h3>Form Utente</h3>
+
+    <form
+      #formUtente="ngForm"
+      (ngSubmit)="onSubmit(formUtente)"
+      [hidden]="submitOK"
+    >
+      <div class="mb-3">
+        <label for="id" class="form-label">id</label>
+        <input
+          type="number"
+          name="id"
+          id="id"
+          required
+          class="form-control mb-3"
+          [(ngModel)]="dati.id"
+          #id="ngModel"
+          required
+          [class.is-invalid]="
+            (id.invalid && id.touched) || (formUtente.submitted && id.invalid)
+          "
+        />
+        <div class="invalid-feedback">l'id è obbligatorio</div>
+
+        <div
+          class="alert alert-danger"
+          *ngIf="formUtente.submitted && formUtente.invalid"
+        >
+          <h4>Controlla i dati inseriti</h4>
+
+          <p>
+            Ci sono errori nei campi da te modificati o non hai compilato i
+            campi obligatori
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input
+          type="text"
+          name="nome"
+          id="nome"
+          required
+          class="form-control mb-3"
+          [(ngModel)]="dati.nome"
+          #nome="ngModel"
+          required
+          [class.is-invalid]="
+            (nome.invalid && nome.touched) ||
+            (formUtente.submitted && nome.invalid)
+          "
+        />
+
+        <div class="invalid-feedback">il nome è obbligatorio</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="cognome" class="form-label">Cognome</label>
+        <input
+          type="text"
+          name="cognome"
+          class="form-control mb-3"
+          [(ngModel)]="dati.cognome"
+          #cognome="ngModel"
+          minlength="2"
+          [class.is-invalid]="cognome.invalid && cognome.touched"
+        />
+
+        <div class="invalid-feedback">
+          il cognome deve avere almeno 2 caratteri
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="username" class="form-label">username</label>
+        <input
+          type="text"
+          name="username"
+          class="form-control mb-3"
+          [(ngModel)]="dati.username"
+          #username="ngModel"
+          minlength="2"
+          [class.is-invalid]="username.invalid && username.touched"
+        />
+
+        <div class="invalid-feedback">
+          username deve avere almeno 2 caratteri
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">password</label>
+        <input
+          type="text"
+          name="password"
+          class="form-control mb-3"
+          [(ngModel)]="dati.password"
+          #password="ngModel"
+          minlength="2"
+          [class.is-invalid]="password.invalid && password.touched"
+        />
+
+        <div class="invalid-feedback">
+          password deve avere almeno 2 caratteri
+        </div>
+      </div>
+
+      <input
+        type="submit"
+        value="aggiungi"
+        class="btn btn-primary"
+        (click)="addUtents(id, nome, cognome, username, password)"
+        routerLink="utenti"
+      />
+
+      <input type="reset" value="cancella" class="btn btn-warning" />
+    </form>
+
+    <div class="alert alert-success" *ngIf="submitOK">
+      <h3>dati inviati correttamente</h3>
+    </div>
+  </div>
+
+  <div class="col">
+    <h3>Dati del form</h3>
+    <pre>
+            {{ dati | json }}
+        </pre
+    >
+    <h3>Dati del model</h3>
+    <pre>
+            {{ datiModel | json }}
+        </pre
+    >
+    <h3>Stato del form</h3>
+    <ul>
+      <li>Form touched: {{ formUtente.touched }}</li>
+      <li>Form dirty: {{ formUtente.dirty }}</li>
+      <li>Form valid: {{ formUtente.valid }}</li>
+      <li>{{ formUtente.submitted }}</li>
+    </ul>
+  </div>
+</div>

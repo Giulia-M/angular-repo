@@ -1,0 +1,44 @@
+<section>
+  <h3>Elenco Utenti</h3>
+
+  <table>
+    <tr>
+      <th>Id</th>
+
+      <th>Nome</th>
+
+      <th>Cognome</th>
+
+      <th>Username</th>
+
+      <th>Password</th>
+
+      <th>Modifiche</th>
+      <!-- *ngIf="modify" -->
+    </tr>
+
+    <tr *ngFor="let p of elencoUtenti">
+      <td>{{ p.id }}</td>
+
+      <td>{{ p.nome }}</td>
+
+      <td>{{ p.cognome }}</td>
+
+      <td>{{ p.username }}</td>
+
+      <td>{{ p.password }}</td>
+
+      <td>
+        <!-- *ngIf="modify" -->
+        <!-- routerLink="modifica/{{ p.codice }}" (click)="mostra()" -->
+        <button routerLink="modifica/{{ p.id }}">Modifica</button>
+      </td>
+    </tr>
+  </table>
+  <button routerLink="nuovo">nuovo</button>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+  <!-- *ngIf="modify" routerLink="nuovo" (click)="mostra()" -->
+  <!-- *ngIf="modifica" -->
+</section>
