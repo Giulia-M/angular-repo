@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-2 w-100 bg-primary">
+    <ul class="navbar-nav">
+      <li>
+        {{ elancoAtleta.id }}
+      </li>
+      <li>
+        {{ elancoAtleta.nome }}
+      </li>
+      <li>
+        {{ elancoAtleta.cognome }}
+      </li>
+      <li>
+        {{ elancoAtleta.punteggio }}
+      </li>
+    </ul>
+  </div>
+  <div class="d-flex flex-row mt-3 justify-content-between">
+    <button routerLink="/atleti" class="btn btn-primary">Return</button>
+    <button
+      routerLink="/atleti/{{ elancoAtleta.id }}/modifica"
+      class="btn btn-secondary"
+    >
+      Modify
+    </button>
+  </div>
+</div>

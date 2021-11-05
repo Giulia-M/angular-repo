@@ -1,0 +1,21 @@
+<h2>Elenco posts</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>operazioni</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of posts">
+            <td>{{p.id}}</td>
+            <td>{{p.title}}</td>
+            <td>
+                <button routerLink="/posts/{{p.id}}" class="btn btn-info">
+                    dettagli
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

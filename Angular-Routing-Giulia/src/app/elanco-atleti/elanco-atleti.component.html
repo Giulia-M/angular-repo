@@ -1,0 +1,9 @@
+<div class="container d-flex justify-content-start">
+  <ul class="list-group navbar-nav">
+    <li *ngFor="let item of elencoAtleti">
+      <a class="nav-link" routerLink="/atleti/{{ item.id }}">{{
+        item.nome + " " + item.cognome
+      }}</a>
+    </li>
+  </ul>
+</div>
