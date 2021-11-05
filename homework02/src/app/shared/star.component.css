@@ -1,0 +1,23 @@
+.star {
+    display: block;
+    width: 1em;
+    height: 1em;
+    font-size: 15px;
+}
+
+.star ::ng-deep > svg {
+    display: block;
+    width: 1em;
+    height: 1em;
+}
+
+.stars {
+    width: 75px;
+}
+
+.crop {
+    display: flex;
+    align-items: center;
+    width: 75px;
+    overflow: hidden;
+}

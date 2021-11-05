@@ -1,0 +1,29 @@
+[
+  {
+    "productId": 2,
+    "productCode": "djj-0909",
+    "imageUrl": "http://placehold.it/100x100",
+    "productName": "playstation",
+    "rating": 5,
+    "addcart": "acquista playstation"
+
+  },
+  {
+    "imageUrl": "http://placehold.it/100x100",
+    "productName": "xbox",
+    "productId": 3,
+    "productCode": "rgu-6666",
+    "rating": 3.5,
+    "addcart": "acquista xbox"
+
+  },
+  {
+    "productName" : "intendods",
+    "imageUrl": "http://placehold.it/100x100",
+    "productId": 3,
+    "productCode": "rgu-6666",
+    "rating": 4,
+    "addcart": "acquista intendods"
+
+  }
+]
