@@ -6,11 +6,11 @@ import { ProductService } from './product.service';
   selector: 'comp-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-   //providers: [ProductService]
+  //providers: [ProductService]
 })
 export class HeaderComponent implements OnInit {
-  title = "miosito";
-  imageWidth : number = 50;
+  title = 'miosito';
+  imageWidth: number = 50;
   showImage: boolean = false;
   listFilter: string = '';
   /*
@@ -20,20 +20,21 @@ export class HeaderComponent implements OnInit {
   }
   */
 
-  products : IProduct[] = [];
+  products: IProduct[] = [];
   constructor(private productService: ProductService) {}
 
-
-  toggleImage() : void {
+  toggleImage(): void {
     this.showImage = !this.showImage;
   }
 
-  get products_filtered (): IProduct[] {
+  get products_filtered(): IProduct[] {
     if (!this.listFilter) {
       return this.products;
     }
     let filterBy = this.listFilter.toLocaleLowerCase();
-    return this.products.filter((product: IProduct) => product.productName.toLocaleLowerCase().includes(filterBy));
+    return this.products.filter((product: IProduct) =>
+      product.productName.toLocaleLowerCase().includes(filterBy)
+    );
   }
 
   onStarClick(rating: number): void {
@@ -41,16 +42,17 @@ export class HeaderComponent implements OnInit {
   }
 
   onCartClick(addcart: string): void {
-    alert( addcart + ' OK');
+    alert(addcart + ' OK');
   }
-  api : any=[]
+  api: any = [];
   ngOnInit(): void {
-
     this.products = this.productService.getProducts();
-    console.log('prodotti : ', this.products)
+    console.log('prodotti : ', this.products);
 
-    this.productService.getApi().subscribe(data => this.api.push(data), err => console.log(err))
-    console.log(this.api)
-
+    this.productService.getApi().subscribe(
+      (data) => this.api.push(data),
+      (err) => console.log(err)
+    );
+    console.log(this.api);
   }
 }
